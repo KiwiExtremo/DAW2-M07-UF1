@@ -1,11 +1,29 @@
 package cat.institutmarianao.domain;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class Student {
+	@NotEmpty(message = "The DNI can't be empty")
 	private String dni;
+
+	@NotEmpty(message = "The name can't be empty")
+	@Size(max = 200, message = "The name is too long")
 	private String name;
+
+	@NotEmpty(message = "The surname can't be empty")
+	@Size(max = 200, message = "The surname is too long")
 	private String surname;
+
+	@Email(regexp = "^$|^(\\w+)@(\\w+)[.](\\w+)$", message = "The e-mail is not valid")
 	private String email;
+
+	@NotNull
 	private String cycle;
+
+	@NotEmpty(message = "You must choose at least one (1) module")
 	private String[] modules;
 
 	public Student() {
