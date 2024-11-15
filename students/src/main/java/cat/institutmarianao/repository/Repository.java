@@ -13,6 +13,8 @@ public interface Repository {
 
 	public List<Student> getStudents();
 
+	public boolean studentExists(Student student);
+
 	public void addStudent(Student student);
 
 	public void removeStudent(Student student);

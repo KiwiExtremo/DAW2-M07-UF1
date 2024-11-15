@@ -92,10 +92,16 @@ public class RepositoryImpl implements Repository {
 	}
 
 	@Override
+	public boolean studentExists(Student student) {
+		return students.contains(student);
+	}
+
+	@Override
 	public void addStudent(Student student) {
 		students.add(student);
 	}
 
+	@Override
 	public void removeStudent(Student student) {
 		students.remove(student);
 	}

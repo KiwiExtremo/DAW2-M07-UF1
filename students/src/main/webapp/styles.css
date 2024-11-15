@@ -1,1 +1,148 @@
 @charset "UTF-8";
+
+body {
+	height: 100%;
+}
+
+.container {
+	width: 70vw;
+	margin: auto;	
+}
+
+.header {
+	background-color: #BDEBFF;
+	border-radius: 25px 25px 0px 0px;
+	padding: 10px 30px;
+}
+
+.new-student-container {
+	margin: 20px auto;	
+}
+
+/* Confirm pop-up */
+#delete-container {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    vertical-align: center;
+    z-index: 1;
+    background: #00000080;
+	text-align: center;
+	display: none;
+	align-items: center;
+}
+
+.message {
+	background-color: #eeeeec;
+	display: inline-block;
+	position: abosulte;
+	margin: auto;
+	padding: 20px 40px 40px;
+	border-radius: 15px;
+	box-shadow: 0 0 20px black;
+}
+
+/* Table */
+table {
+	width: 100%;
+	background-color: #F6F6F6;
+	text-align: center;
+}
+th, td {
+	padding: 10px;
+}
+
+th {
+	background-color: #BDBDBD;
+}
+
+tr:nth-child(even) {
+	background-color: #E1E2E0;
+}
+
+tr:nth-child(odd) {
+	background-color: #EFEFEF;
+}
+
+.modules {
+	text-align: left;
+	font-size: 0.85em;
+}
+
+.modules > p {
+	margin: 5px;
+}
+
+.btn {
+	font-weight: bold;
+	color: #ffffff;
+	padding: 5px 10px;
+	border-radius: 7px;
+}
+
+/* Error messages */
+.errors-container {
+	color: #ffffff;
+	font-weight: bold;
+	background-color: #FF7777;
+	border-radius: 15px;
+	padding: 5px 20px;
+}
+
+/* Register buttons */
+.btn-register {
+	text-decoration: none;
+	background-color: #3465a4;
+	border-top: 4px solid #729fcf;
+	border-left: 4px solid #729fcf;
+	border-bottom: 4px solid #204a87;
+	border-right: 4px solid #204a87;
+}
+
+.btn-register:hover {
+	background-color: #204a87;
+	border-top: 4px solid #4479bd;
+	border-left: 4px solid #4479bd;
+	border-bottom: 4px solid #113569;
+	border-right: 4px solid #113569;
+}
+
+/* Delete buttons */
+#btn-delete, .btn-delete-message {
+	background-color: #FF7777;
+	border-top: 4px solid #FFAEAE;
+	border-left: 4px solid #FFAEAE;
+	border-bottom: 4px solid #FF4545;
+	border-right: 4px solid #FF4545;
+}
+
+#btn-delete:hover, .btn-delete-message:hover {
+	background-color: #FF4545;
+	border-top: 4px solid #FF7777;
+	border-left: 4px solid #FF7777;
+	border-bottom: 4px solid #DD3333;
+	border-right: 4px solid #DD3333;
+}
+
+#btn-cancel {
+	background-color: #B0B1AC;
+	border-top: 4px solid #DDDED9;
+	border-left: 4px solid #DDDED9;
+	border-bottom: 4px solid #888A85;
+	border-right: 4px solid #888A85;
+}
+
+#btn-cancel:hover {
+	background-color: #888A85;
+	border-top: 4px solid #C8C9C3;
+	border-left: 4px solid #C8C9C3;
+	border-bottom: 4px solid #5D5D5D;
+	border-right: 4px solid #5D5D5D;
+}
+
+.spacer {
+	display: inline;
+	padding: 0px 30px;
+}

@@ -65,23 +65,18 @@ public class RegisterServlet extends HttpServlet implements Servlet {
 			errorMap = checkDNI(errorMap, request.getParameter("dni"));
 		}
 
-		if (errorMap.isEmpty()) {
-			// TODO check that the student is not already on the repository
+		if (repo.studentExists(inputStudent)) {
+			errorMap.put("student", "This student already exists");
+		}
 
+		if (errorMap.isEmpty()) {
 			// Add the student to the repository
 			repo.addStudent(inputStudent);
 
-			// Go back to students.jsp
-			request.setAttribute("studentDNI", request.getParameter("dni"));
-
-			RequestDispatcher rd;
-
-			rd = request.getRequestDispatcher("StudentsServlet");
-
-			rd.forward(request, response);
+			response.sendRedirect("students");
 
 		} else {
-			// create errors and send them back to register.jsp
+			// send errors and filled fields back to register.jsp
 			request.setAttribute("errors", errorMap);
 			request.setAttribute("studentData", inputStudent);
 
@@ -92,6 +87,13 @@ public class RegisterServlet extends HttpServlet implements Servlet {
 	private void initializeData(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String cycle = request.getParameter("cycle");
+
+		// If a malicious user modifies the register url, send them back to students.jsp
+		if (cycle.isBlank() || !repo.getCycles().contains(cycle)) {
+			response.sendRedirect("students");
+
+			return;
+		}
 
 		List<String> modules = repo.getModules(cycle);
 
